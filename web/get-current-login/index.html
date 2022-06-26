@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Sign in</h2>
+
+    </div>
+    <!-- <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script> -->
+
+    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
+
+        // // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        // import { analytics } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js'
+
+        // // Add Firebase products that you want to use
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js'
+
+        const firebaseConfig = {
+            ...
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth()
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            // ...
+            console.log("still logged in")
+            console.log(user)
+        } else {
+            // User is signed out
+            // ...
+            console.log("alread signed out!!")
+        }
+        });
+    </script>
+
+</body>
+
+</html>
